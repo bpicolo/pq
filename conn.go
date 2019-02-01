@@ -388,6 +388,7 @@ func DialOpen(d Dialer, name string) (_ driver.Conn, err error) {
 		cn.startup(o)
 		if err = cn.checkWritable(o); err != nil {
 			errs = append(errs, err)
+			panicking = false
 			continue
 		}
 
